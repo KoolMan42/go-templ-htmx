@@ -7,18 +7,18 @@ import (
 )
 
 func main() {
-  // Echo instance
-  e := echo.New()
+	// Echo instance
+	e := echo.New()
 
-  // Middleware
-  e.Use(middleware.Logger())
-  e.Use(middleware.Recover())
-  IndexHandler := handler.IndexHandler{}
-  // Routes
-  e.GET("/", IndexHandler.HandleIndexShow)
+	// Middleware
+	e.Use(middleware.Logger())
+	e.Use(middleware.Recover())
+	IndexHandler := handler.IndexHandler{}
+	// Routes
+	e.GET("/", IndexHandler.HandleIndexShow)
 
-  // Start server
-  e.Logger.Fatal(e.Start(":8080"))
+	// Start server
+	e.Logger.Fatal(e.Start(":8080"))
 }
 
 // Handler

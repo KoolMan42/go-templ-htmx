@@ -1,6 +1,6 @@
 module github.com/koolman42/go-templ-htmx
 
-go 1.21.1
+go 1.21
 
 require (
 	github.com/a-h/templ v0.2.513 // indirect
