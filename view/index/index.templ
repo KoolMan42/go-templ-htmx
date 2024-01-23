@@ -1,7 +1,40 @@
 package index
 
+import "github.com/koolman42/go-templ-htmx/view/component"
+import "github.com/koolman42/go-templ-htmx/view/layout"
 
-templ Show(name string) {
-	<div>Hello, <b>{ name }</b></div>
+templ Show() {
+@layout.MainLayout() {
+<div key="1" class="flex flex-col h-screen bg-black text-green-500 font-mono">
+  <header class="flex items-center justify-between px-4 py-2 border-b border-green-500">
+    <div class="flex items-center space-x-2">
+      <!-- Assuming TerminalIcon is an SVG or similar icon -->
+      @components.ShowIcon()
+      <h1 class="text-2xl">
+        Thomas' Dev Term
+        <span class="animate-blink">_</span>
+      </h1>
+    </div>
+  </header>
+  <main class="flex-1 overflow-auto px-4 py-2">
+    <div class="p-4 text-sm">
+      <h2 class="text-xl mb-4">About Me</h2>
+      <p class="mt-4 leading-7">
+        Hi my name is Thomas and I'm a fullstack Developer,
+        I have a strong background in Go, Typescript, and Java.
+        My personal favourite is Go just because on how simple it is to write applications for.
+      </p>
+      <h2 class="text-xl mt-8 mb-4">Skills</h2>
+      <p class="mt-4 leading-7">
+        Typescript, Go, Java, MySQL, HTML, CSS, Rust
+      </p>
+      <h2 class="text-xl mt-8 mb-4">Experience</h2>
+      <p class="mt-4 leading-7">
+        I have over 5 years of experience in web development, working on a variety of projects ranging from small
+        websites to large-scale applications.
+      </p>
+    </div>
+  </main>
+</div>
 }
-
+}

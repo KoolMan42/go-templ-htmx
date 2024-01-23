@@ -9,5 +9,5 @@ type IndexHandler struct {}
 
 
 func(h IndexHandler) HandleIndexShow(c echo.Context) error {
-  return render(c,index.Show("Thomas"))
+  return render(c,index.Show())
 }
