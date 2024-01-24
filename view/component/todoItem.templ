@@ -1,0 +1,17 @@
+package components
+
+import "github.com/koolman42/go-templ-htmx/models"
+import "strconv"
+
+
+
+templ TodoItem(number int, todo models.Todo){
+
+      <div class="border-b border-green-500 py-2">
+        <div class="flex items-center">
+          <input class="mr-2 h-5 w-5 bg-black border-green-500" type="checkbox" />
+          <p class="text-green-500 ">{strconv.Itoa(number+1)}. {todo.Title}</p>
+        </div>
+        <p class="text-green-400 ml-7">{todo.Description}</p>
+      </div>
+}

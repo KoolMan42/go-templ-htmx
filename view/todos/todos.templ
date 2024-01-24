@@ -1,0 +1,23 @@
+package todos
+
+import (
+"github.com/koolman42/go-templ-htmx/view/layout"
+"github.com/koolman42/go-templ-htmx/view/component"
+	"github.com/koolman42/go-templ-htmx/models"
+)
+
+templ Show(items []models.Todo) {
+@layout.MainLayout() {
+<main class="flex-1 overflow-auto px-4 py-2">
+  <div class="p-4 text-sm">
+    <h2 class="text-xl mb-4">Todo List</h2>
+    <div class="mt-4 leading-7">
+        for i,k := range items{
+
+        @components.TodoItem(i,k)
+        }
+    </div>
+  </div>
+</main>
+}
+}
