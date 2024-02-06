@@ -4,20 +4,22 @@ import (
 	"log"
 	"os"
 
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
 	"github.com/joho/godotenv"
 	"github.com/koolman42/go-templ-htmx/handler"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
-	_ "github.com/go-sql-driver/mysql"
 )
 
 func main() {
 	// Echo instance
 	e := echo.New()
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("failed to load env", err)
+	if os.Getenv("env") == "" {
+		err := godotenv.Load()
+		if err != nil {
+			log.Fatal("failed to load env", err)
+		}
 	}
 
 	db, err := sqlx.Open("mysql", os.Getenv("DSN"))
@@ -40,4 +42,3 @@ func main() {
 	e.Logger.Fatal(e.Start(":8080"))
 }
 
-// Handler
